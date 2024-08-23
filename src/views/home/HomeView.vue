@@ -68,7 +68,7 @@ const filterApps = (value: string) => {
   if (value === '') {
     apps.value = apps_all.value
   } else {
-    apps.value = apps_all.value.filter((app) => {
+    apps.value = apps.value.filter((app) => {
       return app.name.toLocaleLowerCase().indexOf(value.toLocaleLowerCase()) > -1
     })
   }
@@ -290,7 +290,7 @@ const copyEamil = () => {
           </div>
         </van-swipe-item> -->
 
-        <template>
+        <template #indicator="{ active }">
           <!-- <div class="custom-indicator flex flex-row">
             <div
               class="w-[8px] h-[4px] mr-[4px] mb-[8px] rounded-[2px]"

@@ -3,11 +3,11 @@ import { type AppInfo, type ConfigData, type BaseConfig, type ProductSetByType }
 // import { test_data } from '@/help/data'
 
 class AppList {
-  // 获取应用的url地址
+  // 获取应用的url地址111
   private applistUrl_test: string =
-    'https://source.dwebdapp.com/dweb-browser-apps/dweb-apps-test/applist.json'
+    'https://source.biw-meta.io/dwebbrowser-apps/dweb-apps-test/applist.json'
   private applistUrl_prod: string =
-    'https://source.dwebdapp.com/dweb-browser-apps/dweb-apps/applist.json'
+    'https://source.biw-meta.io/dwebbrowser-apps/dweb-apps/applist.json'
 
   private data: ConfigData | undefined
 
@@ -187,18 +187,18 @@ class AppList {
 
   /** 跳转app */
   jumpApp(appInfo: AppInfo, failCallback: any) {
-    // let appUrl = ''
+    let appUrl = ''
     if (versionService.isDwebBrowser()) {
       // 如果是在dweb中打开，则直接打开应用
-      const appUrl = `dweb://install?url=${appInfo.metadata}`
-      console.log('跳转app的 url', appUrl)
-      window.open(appUrl)
+      appUrl = `dweb://install?url=${appInfo.metadata}`
     } else {
       // 如果是在浏览器中打开，直接跳转dewebBrower应用中心页面
-      const appUrl = `dweb://openinbrowser?url=${window.location.href}`
-      console.log('跳转app的 url', appUrl)
-      window.location.href = appUrl
+      appUrl = `dweb://openinbrowser?url=${window.location.href}`
     }
+    console.log('跳转app的 url', appUrl)
+    window.open(appUrl)
+    console.log('使用 window.open')
+    // window.location.href = appUrl
 
     // 如果是外部浏览器，会拉起下载应用弹窗
     if (versionService.isDwebBrowser() === false) {

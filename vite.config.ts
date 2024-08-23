@@ -8,21 +8,15 @@ import UnoCSS from 'unocss/vite'
 
 import Components from 'unplugin-vue-components/vite';
 import { VantResolver } from '@vant/auto-import-resolver';
-import { createHtmlPlugin } from 'vite-plugin-html';
 
 // https://vitejs.dev/config/
-export default defineConfig(({mode}) => {
-  const isProduction = mode === 'production';
+export default defineConfig(() => {
   return {
+    // build: {
+    //   outDir: mode === 'production' ? 'dist-production' : 'dist-development'
+    // },
     plugins: [
       vue(),
-      createHtmlPlugin({
-        inject: {
-          data: {
-            title: isProduction ? 'Dweb Metaverse' : 'TDweb Metaverse'
-          }
-        }
-      }),
       Components({
         resolvers: [VantResolver()],
       }),

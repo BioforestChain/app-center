@@ -55,14 +55,12 @@ const filterApps = (value: string) => {
 }
 
 const openApp = (app: AppInfo) => {
-  applistService.jumpApp(app, null)
-
-  // applistService.jumpApp(app, () => {
-  //   console.log('pc端打开应用失败，无提示')
-  //   // if (ref_dialog.value) {
-  //   //   ref_dialog.value.showPopup()
-  //   // }
-  // })
+  applistService.jumpApp(app, () => {
+    console.log('拉起dewebrower失败, 弹窗下载app')
+    // if (ref_dialog.value) {
+    //   ref_dialog.value.showPopup()
+    // }
+  })
 }
 
 const openToast = () => {
