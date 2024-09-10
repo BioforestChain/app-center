@@ -2,6 +2,18 @@ import versionService from './version'
 import { type AppInfo, type ConfigData, type BaseConfig, type ProductSetByType } from '../type/app'
 // import { test_data } from '@/help/data'
 
+// 获取浏览器的语言设置，默认使用 'zh-Hans'（简体中文）如果无法获取到语言
+const userLang = navigator.language || 'zh-Hans';
+
+// 创建语言到 JSON 文件的映射，并使用 `as const` 将其标记为常量
+const languageMap = {
+  'zh-CN': 'zh-Hans.json',  // 简体中文（中国大陆）
+  'zh-SG': 'zh-Hans.json',  // 简体中文（新加坡）
+  'zh-TW': 'zh-Hant.json',  // 繁体中文（台湾）
+  'zh-HK': 'zh-Hant.json',  // 繁体中文（香港）
+  'zh-MO': 'zh-Hant.json',  // 繁体中文（澳门）
+} as const;
+
 class AppList {
   // 获取应用的url地址
   private applistUrl_test: string =
@@ -124,15 +136,20 @@ class AppList {
     const apps_all = Object.keys(data.applist).map((key) => {
       // eslint-disable-next-line prefer-const
       let { name, description, logo, metadata, ...rest } = data.applist[key]
-      const appname = metadata && metadata.split('/')[1]
 
       let version = rest['latest']
       if (isDweb && rest['dwebTarget' + Browser_bigVersion]) {
         version = rest['dwebTarget' + Browser_bigVersion]
       }
 
-      metadata =
-        metadata && base_url_app + metadata.replace(`/${appname}/`, `/${appname}/${version}/`)
+      // 检查是否有具体的语言映射，否则检查通用语言映射（如 'zh' 或 'en'）
+      const jsonFile =
+        languageMap[userLang as keyof typeof languageMap] ||
+        (userLang.startsWith('zh') && (userLang.includes('Hant') ? 'zh-Hant.json' : 'zh-Hans.json')) ||
+        (userLang.startsWith('en') && 'en-US.json') ||  // 处理所有以 'en' 开头的语言
+        'zh-Hans.json';  // 默认使用简体中文
+      metadata = metadata && `${base_url_app}/${key}/${version}/${jsonFile}`;
+      // metadata = metadata && base_url_app + metadata.replace(`/${appname}/`, `/${appname}/${version}/`)
       return {
         name,
         description,

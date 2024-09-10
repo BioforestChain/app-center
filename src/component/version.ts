@@ -29,7 +29,7 @@ class EnvironmentConfig {
 
   constructor() {
     const domain = window.location.href.split('/')[2]
-    const isTest = domain.indexOf('test') > -1
+    const isTest = domain.indexOf('test') > -1 || domain.indexOf('172.30.95.98') > -1
     // const isLocalTest = domain.indexOf('localhost') > -1 || domain.indexOf('172.30.95.6') > -1
 
     this.currentEnv = isTest ? Environment.Test : Environment.Production
@@ -57,7 +57,7 @@ class EnvironmentConfig {
     return this.Browser_bigVersion
   }
 
-  dewebTarget():number {
+  dewebTarget(): number {
     return dwebTarget()
   }
 

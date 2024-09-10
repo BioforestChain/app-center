@@ -248,10 +248,10 @@ const copyEamil = () => {
           <img src="../../assets/media/logo.svg" class="topBar_img" alt="logo" />
           <span :class="['topBar_title']">Dweb Metaverse</span>
         </div>
-        <!-- <div class="alignCenter topbar_linkContaine" @click="$router.push('/link')">
+        <div class="alignCenter topbar_linkContaine" @click="$router.push('/link')">
           <img src="../../assets/media/icon_link.svg" class="topBar_link_icon" alt="link" />
           <span class="topBar_link">链接</span>
-        </div> -->
+        </div>
       </div>
 
       <van-swipe class="post_container" :autoplay="3000" indicator-color="white">
@@ -271,7 +271,7 @@ const copyEamil = () => {
           </div>
         </van-swipe-item>
 
-        <!-- <van-swipe-item
+        <van-swipe-item
           class="p-[24px] !w-[342px] !h-[220px] box-border"
           @click="openImageViewer()"
         >
@@ -288,7 +288,7 @@ const copyEamil = () => {
           <div :class="['post_img_box', 'w-[136px]']">
             <img src="../../assets/media/banner_font2.svg" class="post_img2" alt="post_text" />
           </div>
-        </van-swipe-item> -->
+        </van-swipe-item>
 
         <template>
           <!-- <div class="custom-indicator flex flex-row">

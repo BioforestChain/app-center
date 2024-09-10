@@ -128,10 +128,10 @@ const setVisible = (visible: boolean) => {
           <span :class="['topBar_title']">Dweb Metaverse</span>
         </div>
           
-        <!-- <div class="alignCenter topbar_linkContaine" @click="$router.push('/linkPc')">
+        <div class="alignCenter topbar_linkContaine" @click="$router.push('/linkPc')">
           <img src="../../assets/media/icon_link.svg" class="topBar_link_icon" alt="link">
           <span class="topBar_link">链接</span>
-        </div> -->
+        </div>
       </div>
       <a-image
           :style="{ display: 'none' }"
@@ -159,7 +159,7 @@ const setVisible = (visible: boolean) => {
                 <span :class="['post_bottom_span']">应用将安装于 Dweb Browser 中</span>
               </div>
             </div>
-            <!-- <div class="swipe-item">
+            <div class="swipe-item">
               <img src="../../assets/media/headerBg_pc.png" class="post_container_bg" alt="post_container_bg">
               <div :class="['post_title_box']">
                 Web3元宇宙生态基金会工具库
@@ -171,7 +171,7 @@ const setVisible = (visible: boolean) => {
                 <img src="../../assets/media/icon_info.svg" :class="['post_bottom_img']" alt="icon">
                 <span :class="['post_bottom_span']">应用将安装于 Dweb Browser 中</span>
               </div>
-            </div> -->
+            </div>
           </a-carousel>
         </div>
         
