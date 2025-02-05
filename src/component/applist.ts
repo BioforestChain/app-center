@@ -5,9 +5,9 @@ import { type AppInfo, type ConfigData, type BaseConfig, type ProductSetByType }
 class AppList {
   // 获取应用的url地址
   private applistUrl_test: string =
-    'https://source.dwebdapp.com/dweb-browser-apps/dweb-apps-test/tansocc-list.json'
+    'https://source.dwebdapp.com/dweb-browser-apps/dweb-apps-test/nilai-list.json'
   private applistUrl_prod: string =
-    'https://source.dwebdapp.com/dweb-browser-apps/dweb-apps/tansocc-list.json'
+    'https://source.dwebdapp.com/dweb-browser-apps/dweb-apps/nilai-list.json'
 
   private data: ConfigData | undefined
 
