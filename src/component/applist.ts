@@ -5,9 +5,9 @@ import { type AppInfo, type ConfigData, type BaseConfig, type ProductSetByType }
 class AppList {
   // 获取应用的url地址111
   private applistUrl_test: string =
-    'https://source.biw-meta.io/dwebbrowser-apps/dweb-apps-test/applist.json'
+    'https://cdn.biw-meta.tweb.xin/dwebbrowser-apps/dweb-apps-test/applist.json'
   private applistUrl_prod: string =
-    'https://source.biw-meta.io/dwebbrowser-apps/dweb-apps/applist.json'
+    'https://cdn.biw-meta.tweb.xin/dwebbrowser-apps/dweb-apps/applist.json'
 
   private data: ConfigData | undefined
 
